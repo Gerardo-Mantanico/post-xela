@@ -1,0 +1,24 @@
+#compando para iniciar docker
+    sudo systemctl start docker 
+    sudo docker-compose up
+
+
+#comando de laravel
+    comando para crear un proyecto en laravel 
+    composer create-project laravel/laravel  postEvents
+
+    php artisan make:model Users--all
+    php artisan make:request Users/StoreRequest
+    php artisan make:request Users/UpdateRequest
+
+# primero se realiza la migrations
+# model
+
+#para poder ingresar al contenedor de laravel y ejecutarlo  
+    sudo docker-compose exec workspace bash
+
+#comando para poder  ejecutar laravel
+    php artisan serve
+
+# se utilza jetstream
+    
