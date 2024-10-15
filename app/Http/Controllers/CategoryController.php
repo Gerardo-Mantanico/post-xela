@@ -21,20 +21,17 @@ class CategoryController extends Controller
 
     public function store(StoreCategoryRequest $request)
     {
-        /*Category::create($request->all());
-        return redirect()->route('categories.index');*/
-        Category::create($request->validated()); // Usa validated para asegurarte de que los datos sean válidos
 
+        Category::create($request->validated());
         return redirect()->route('categories.index')->with('success', 'Categoría creada con éxito.');
-
     }
 
     public function show(Category $category)
     {
-         return view('admin.category.show', compact('category'));
+        return view('admin.category.show', compact('category'));
     }
 
-    public function edit( Category $category)
+    public function edit(Category $category)
     {
         return view('admin.category.edit', compact('category'));
     }
@@ -49,6 +46,5 @@ class CategoryController extends Controller
     {
         $category->delete();
         return redirect()->route('categories.index');
-
     }
 }

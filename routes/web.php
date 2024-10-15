@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController; // Asegúrate de tener esta línea
+use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,5 +21,6 @@ Route::middleware([
         return view('new-post');
     })->name('new-post');
 
-    Route::resource('categories', CategoryController::class)->names('categories'); // Asegúrate de que esté así
+    Route::resource('categories', CategoryController::class)->names('categories');
+    Route::resource('posts', PostController::class)->names('posts');
 });

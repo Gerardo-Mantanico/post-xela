@@ -4,7 +4,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="bg-red-400 w-full   p-6 flex justify-end items-center">
                     <a class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 transition ease-in-out duration-150']) }}>"
-                        href="{{route('categories.create')}}">Add category</a>
+                        href="{{route('posts.create')}}">Add post</a>
                 </div>
 
                 <div class="max-w-[720px] mx-auto p-6">
@@ -37,35 +37,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categories as $category)
-                                <tr class="hover:bg-slate-50">
-                                    <td class="p-4 text-sm font-normal leading-none text-slate-500">{{ $category->id_category }}</td>
-                                    <td class="p-4 text-sm font-normal leading-none text-slate-500">{{ $category->category }}</td>
-                                    <td class="p-4 py-5">
-                                        <a href="{{route('categories.edit',$category)}}" class="text-slate-500 hover:text-slate-700">
-                                            <svg class="h-6 w-6 text-black" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" />
-                                                <path d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
-                                                <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
-                                                <line x1="16" y1="5" x2="19" y2="8" />
-                                            </svg>
-                                        </a>
-                                    </td>
-                                    <td class="p-4 py-5">
-                                        <form action="{{ route('categories.destroy', $category) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE') <!-- Aquí especificas que la solicitud es DELETE -->
-                                            <button type="submit" class="text-slate-500 hover:text-slate-700">
-                                                <svg class="h-6 w-6 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" />
-                                                    <line x1="18" y1="9" x2="12" y2="15" />
-                                                    <line x1="12" y1="9" x2="18" y2="15" />
-                                                </svg>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                @endforeach
+
 
                             </tbody>
                         </table>
