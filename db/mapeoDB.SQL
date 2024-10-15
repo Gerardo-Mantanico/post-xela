@@ -11,7 +11,7 @@ Create TABLE user(
     baneado BOOLEAN
 );
 
-CREATE TABLE publication(
+CREATE TABLE post(
 	id_publication INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_user INT NOT NULL,
     info_events TEXT NOT NULL,

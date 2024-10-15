@@ -11,7 +11,7 @@ class StoreCategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class StoreCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'category'=>'required|string|max:50',
+        ];
+    }
+    public function messages(){
+        return[
+            'category.required' => 'Este campo es requerido',
+            'category.string' => 'El valor no es correcto',
+            'category.max' => 'Solo se permite 50 caracteres',
         ];
     }
 }

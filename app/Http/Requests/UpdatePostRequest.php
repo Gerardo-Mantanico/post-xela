@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCategoryRequest extends FormRequest
+class UpdatePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,14 +22,7 @@ class UpdateCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category'=>'required|string|max:50',
-        ];
-    }
-    public function messages(){
-        return[
-            'category.required' => 'Este campo es requerido',
-            'category.string' => 'El valor no es correcto',
-            'category.max' => 'Solo se permite 50 caracteres',
+            //
         ];
     }
 }

@@ -15,11 +15,19 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('da')">
                         {{ __('Eventos proximos') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('new-post') }}" :active="request()->routeIs('new-post')">
+                        {{ __('New post') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.index')">
+                        {{ __('Category') }}
+                    </x-nav-link>
+                
                 </div>
             </div>
+            
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <!-- Teams Dropdown -->
