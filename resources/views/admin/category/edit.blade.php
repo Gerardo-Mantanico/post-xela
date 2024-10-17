@@ -24,6 +24,9 @@
                                         <x-button class="h-10.50 mt-6">
                                             {{ __('Update') }}
                                         </x-button>
+                                        <x-a-cancel class="h-10.50 mt-6 text-black" href="{{ route ('categories.index')}}">
+                                            {{ __('Cancel') }}
+                                        </x-a-cancel>
                                     </div>
                             </div>
                             </form>
