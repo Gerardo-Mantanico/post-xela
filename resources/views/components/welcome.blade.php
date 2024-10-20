@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <body class="bg-gray-100">
     <div class="max-w-4xl mx-auto p-6 lg:p-8 mt-8 bg-white border border-gray-200 rounded-xl">
         <section>
@@ -93,5 +90,3 @@
         }
     </style>
 </body>
-
-</html>

@@ -19,14 +19,15 @@ return new class extends Migration
             $table->time('time_event');
             $table->integer('capacity');
             $table->integer('confirmed');
+            $table->string('address');
             $table->longText('description');
             $table->unsignedBigInteger('id_category');
+            $table->enum('state_publication', ['ACTIVATED', 'REFUSED', 'PENDING', 'BAN']); // Corregido
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_category')->references('id_category')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */

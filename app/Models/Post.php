@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
     protected $table = 'posts';
-    protected $primarykey = 'id_post';
+    protected $primaryKey = 'id_post';
 
     protected $fillable = [
         'id_user',
@@ -18,12 +18,14 @@ class Post extends Model
         'time_event',
         'capacity',
         'confirmed',
+        'address',
         'description',
         'id_category',
+        'state_publication',
     ];
 
     protected $attributes = [
-        'id_user' => 1,
         'confirmed' => 0,
+        'state_publication' => 'ACTIVATED',
     ];
 }

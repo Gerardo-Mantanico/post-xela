@@ -46,8 +46,7 @@
     </div>
     @stack('modals')
     @livewireScripts
-    <!-- Trix JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js"></script>
+
 </body>
 
 </html>

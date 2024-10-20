@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController; // Asegúrate de tener esta línea
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ReportPostController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,4 +24,6 @@ Route::middleware([
 
     Route::resource('categories', CategoryController::class)->names('categories');
     Route::resource('posts', PostController::class)->names('posts');
+    Route::resource('reportPost', ReportPostController::class)->names('reportPost');
+    Route::get('posts/publication', [PostController::class, 'publication'])->name('posts.publication');
 });

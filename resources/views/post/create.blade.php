@@ -6,7 +6,7 @@
                     <div class="text-center mb-6">
                         <h1 class="text-2xl font-bold">Create post</h1>
                     </div>
-                    <form action="{{ route('posts.store') }}" method="POST">
+                    <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-4">
                             <label for="title" class="block text-sm font-medium text-gray-700">Title:</label>
@@ -21,7 +21,6 @@
                                 <label for="time-event" class="block text-sm font-medium text-gray-700">Event time:</label>
                                 <input type="time" value="{{ old('time_event') }}" class="form-control block w-full mt-1 p-2 border border-gray-300 rounded" name="time_event" id="time-event" required>
                             </div>
-
                             <div class="mb-4 w-1/2">
                                 <label for="capacity" class="block text-sm font-medium text-gray-700">Event Capacity:</label>
                                 <input type="number" value="{{ old('capacity') }}" class="form-control block w-full mt-1 p-2 border border-gray-300 rounded" name="capacity" min="1" step="1" required>
@@ -35,64 +34,48 @@
                                 </select>
                             </div>
                         </div>
-                        <label for="description" class="block text-sm font-medium text-gray-700">Description:</label>
-                        <input id="description" type="hidden" name="description">
-                        <trix-editor input="description" value="{{ old('description') }}" class="border border-gray-300 h-100 mb-4"></trix-editor>
+                        <div class="mb-4">
+                            <label for="address" class="block text-sm font-medium text-gray-700">Address:</label>
+                            <input type="text" value="{{ old('address') }}" class="form-control block w-full mt-1 p-2 border border-gray-300 rounded" name="address" required>
+                        </div>
+
+                        <label for="">Description:</label>
+                        <textarea name="description" value="{{ old('description') }}" id="description" cols="30" rows="10"></textarea>
                         <x-button>
-                            {{ __('post') }}
+                            {{ __('Post') }}
                         </x-button>
-                        <x-a-cancel href=" {{ route('posts.index') }}">
+                        <x-a-cancel href="{{ route('posts.index') }}">
                             {{ __('Cancel') }}
                         </x-a-cancel>
                     </form>
-
-
                 </div>
                 @section('scripts')
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js"></script>
-                <script>
-                    // Personalizar la barra de herramientas de Trix
-                    document.addEventListener('trix-initialize', function(event) {
-                        var toolbar = event.target.toolbarElement;
-
-                        // Agregar un botón de imagen
-                        var buttonImageHTML = '<button type="button" class="trix-button" data-trix-action="x-insert-image" title="Insertar imagen">Imagen</button>';
-                        toolbar.querySelector('.trix-button-group').insertAdjacentHTML('beforeend', buttonImageHTML);
-
-                        // Lógica para insertar imagen
-                        toolbar.querySelector('[data-trix-action="x-insert-image"]').addEventListener('click', function() {
-                            // Crear un input de tipo file
-                            var input = document.createElement('input');
-                            input.type = 'file';
-                            input.accept = 'image/*'; // Aceptar solo imágenes
-
-                            // Cuando se seleccione un archivo
-                            input.addEventListener('change', function(event) {
-                                var file = event.target.files[0]; // Obtener el archivo seleccionado
-
-                                if (file) {
-                                    var reader = new FileReader(); // Crear un lector de archivos
-
-                                    // Cuando el archivo se haya leído correctamente
-                                    reader.onload = function(e) {
-                                        var imageUrl = e.target.result; // Obtener la URL de la imagen en Base64
-                                        event.target.editor.insertHTML(`<img src="${imageUrl}" alt="Imagen" />`); // Insertar la imagen en el editor
-                                    };
-
-                                    reader.readAsDataURL(file); // Leer el archivo como URL de datos (Base64)
-                                }
-                            });
-
-                            // Abrir el cuadro de diálogo de selección de archivos
-                            input.click();
-                        });
-
-                        // Aquí puedes agregar más botones y lógica si es necesario
-                    });
-                </script>
                 @endsection
-
             </div>
         </div>
     </div>
 </x-app-layout>
+
+
+
+<head>
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $('#description').summernote({
+            placeholder: 'description...',
+            tabsize: 2,
+            height: 300
+        });
+    </script>
+</body>
