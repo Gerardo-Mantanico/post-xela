@@ -7,7 +7,7 @@
             <div class="card bg-black shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
             <div class="relative w-full rounded-3xl  px-6 py-4 bg-white shadow-md">
                 <label for="" class="block mt-3 text-sm text-gray-700 text-center font-semibold ">
-                    <img class="rounded-3xl" src="https://i.postimg.cc/kGJCNkVK/image-2.png" alt="logo">
+                    <img class="rounded-3xl" src="https://i.postimg.cc/rFTbtX4b/xela-Event.png" alt=" logo">
                 </label>
                 <x-validation-errors class="mb-4" />
                 @session('status')
@@ -47,7 +47,6 @@
                             <label class="mr-2">¿Eres nuevo?</label>
                             <a href="{{ route('register') }}" class=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
                                 Crea una cuenta
-
                             </a>
                         </div>
                     </div>

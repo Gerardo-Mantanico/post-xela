@@ -14,7 +14,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::get();
+        $posts = Post::where('state_publication', 'ACTIVATED')->get();
         return view('post.index', compact('posts'));
     }
 
@@ -60,7 +60,7 @@ class PostController extends Controller
             // Crear el elemento de imagen
             $imageElement = $dom->createElement('img', '');
             $imageElement->setAttribute('src', $image_name);
-            $imageElement->setAttribute('class', 'w-full h-[500px] object-cover rounded-lg');
+            $imageElement->setAttribute('style', 'width: 100%; height: 100%; object-fit: cover;'); // Ocupa todo el contenedor  // O usando Tailwind: $imageElement->setAttribute('class', 'w-[300px] h-[200px] object-cover rounded-lg');
             $imageElement->setAttribute('alt', 'Slide ' . ($i + 1));
 
             // Añadir la imagen al div de diapositiva
@@ -96,10 +96,10 @@ class PostController extends Controller
         // Guardar el HTML modificado
         $description = $dom->saveHTML();
         // Crear el post (ejemplo básico, ajusta según tu modelo)
-        $user_id= $iduser = Auth::id();
+        $user_id = $iduser = Auth::id();
         Post::create([
             'title' => $request['title'],
-            'id_user'=> $user_id,
+            'id_user' => $user_id,
             'date_event' => $request['date_event'],
             'time_event' => $request['time_event'],
             'capacity' => $request['capacity'],

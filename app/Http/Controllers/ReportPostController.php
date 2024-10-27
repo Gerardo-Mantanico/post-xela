@@ -7,7 +7,10 @@ use App\Http\Requests\StoreReportPostRequest;
 use App\Http\Requests\UpdateReportPostRequest;
 use App\Models\ReportPost;
 use App\Models\Post;
+use App\Models\User;
+use App\Models\RegisterEvent;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use SebastianBergmann\CodeCoverage\Report\Xml\Report;
 
 class ReportPostController extends Controller
@@ -26,42 +29,32 @@ class ReportPostController extends Controller
      */
     public function create()
     {
-        $iduser = Auth::id();
-        ReportPost::create([
-            'id_post' => 2,
-            'id_user_report' => $iduser,
-            'cause' => "reporte"
-        ]);
+
         return redirect()->route('posts.index');
     }
 
     public function store(Request $request)
     {
-        if ($request['cause'] == null) {
-            return redirect()->route('posts.index');
-        } else {
-            $iduser = Auth::id();
-            ReportPost::create([
-                'id_post' => $request['id_post'],
-                'id_user_report' => $iduser,
-                'cause' => $request['cause'],
-            ]);
-            return redirect()->route('posts.index');
-        }
+        $id_user = Auth::id();
+        $id_post = $request['id_post'];
+        $cause = $request['cause'];
+        $report = DB::select('CALL create_report(?,?,?)', [$id_post, $id_user, $cause]);
+        return redirect()->route('posts.index');
     }
 
-    public function show(ReportPost $reportPost)
+    public function show(Request $id)
     {
-        //
+        $id_user = Auth::id();
+        RegisterEvent::create([
+            'id_post' =>  $id,
+            'id_user' => $id_user,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ReportPost $item)
-    {
-        //
-    }
+    public function edit(Request $request) {}
 
     /**
      * Update the specified resource in storage.

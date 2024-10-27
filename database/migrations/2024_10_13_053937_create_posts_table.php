@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id('id_post');
+            $table->id();
             $table->unsignedBigInteger('id_user');
             $table->string('title');
             $table->date('date_event');
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_category');
             $table->enum('state_publication', ['ACTIVATED', 'REFUSED', 'PENDING', 'BAN']); // Corregido
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('id_category')->references('id_category')->on('categories')->onDelete('cascade');
+            $table->foreign('id_category')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

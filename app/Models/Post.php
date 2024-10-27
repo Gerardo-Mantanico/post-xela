@@ -9,7 +9,6 @@ class Post extends Model
 {
     use HasFactory;
     protected $table = 'posts';
-    protected $primaryKey = 'id_post';
 
     protected $fillable = [
         'id_user',
@@ -26,6 +25,6 @@ class Post extends Model
 
     protected $attributes = [
         'confirmed' => 0,
-        'state_publication' => 'ACTIVATED',
+        'state_publication' => 'PENDING',
     ];
 }

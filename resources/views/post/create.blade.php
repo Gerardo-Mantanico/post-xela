@@ -29,7 +29,7 @@
                                 <label for="type-event" class="block text-sm font-medium text-gray-700">Type event:</label>
                                 <select name="id_category" value="{{ old('id_category') }}" id="type-event" class="form-control block w-full mt-1 p-2 border border-gray-300 rounded" required>
                                     @foreach ($categories as $item)
-                                    <option value="{{$item->id_category}}">{{$item->category}}</option>
+                                    <option value="{{$item->id}}">{{$item->category}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -44,9 +44,9 @@
                         <x-button>
                             {{ __('Post') }}
                         </x-button>
-                        <x-a-cancel href="{{ route('posts.index') }}">
+                        <x-button-cancel href="{{ route('posts.index') }}">
                             {{ __('Cancel') }}
-                        </x-a-cancel>
+                        </x-button-cancel>
                     </form>
                 </div>
                 @section('scripts')

@@ -9,7 +9,6 @@ class ReportPost extends Model
 {
     use HasFactory;
     protected $table = 'report_post';
-    protected $primaryKey = 'id_report';
     protected $fillable = [
         'id_post',
         'id_user_report',
@@ -23,3 +22,5 @@ class ReportPost extends Model
         'state_report' => 'PENDING',
     ];
 }
+
+

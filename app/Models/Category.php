@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
     protected $table = 'categories'; // Asegúrate de que apunte a la tabla correcta
-    protected $primaryKey = 'id_category';
+
 
     // Especifica los campos que se pueden llenar
     protected $fillable = [

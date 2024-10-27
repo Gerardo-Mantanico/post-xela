@@ -1,22 +1,52 @@
-<nav x-data="{ open: false }" style="background-color: #1a1e27;" class="border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{route('posts.index') }}">
+                    <a href="{{ route('posts.index') }}">
                         <x-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
-                        {{ __('Dashboard') }}
+                    <x-nav-link href="{{ route('category') }}" :active="request()->routeIs('category')">
+                        {{ __('Category') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('da')">
-                        <svg class="h-8 w-8 text-black-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
+                        <svg class="h-6 w-6 text-black-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                        </svg>
+                        New post
+
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('authPost') }}" :active="request()->routeIs('authPost')">
+                        <svg class="h-6 w-6 text-black-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+                        Auth post
+
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('reportsPost') }}" :active="request()->routeIs('reportsPost')">
+                        <svg class="h-6 w-6 text-black-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        Report post
+
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
+                        <svg class="h-6 w-6 text-black-200" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
                             <rect x="4" y="5" width="16" height="16" rx="2" />
                             <line x1="16" y1="3" x2="16" y2="7" />
@@ -24,20 +54,12 @@
                             <line x1="4" y1="11" x2="20" y2="11" />
                             <rect x="8" y="15" width="2" height="2" />
                         </svg>
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('posts.publication') }}" :active="request()->routeIs('posts.publication')">
-                        {{ __('My posts') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('reportPost.index') }}" :active="request()->routeIs('reportPost.index')">
-                        {{ __('Report post') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.index')">
-                        {{ __('Category') }}
-                    </x-nav-link>
 
+
+                    </x-nav-link>
                 </div>
-            </div>
 
+            </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <!-- Teams Dropdown -->
@@ -55,6 +77,7 @@
                                 </button>
                             </span>
                         </x-slot>
+
                         <x-slot name="content">
                             <div class="w-60">
                                 <!-- Team Management -->

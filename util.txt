@@ -49,3 +49,11 @@ php artisan migrate:reset
 php artisan make:migration create_name_table
 
 
+#comando para crear tables  livewire
+php artisan make:livewire NombreDeTuComponente
+php artisan make:livewire NombreDeTuComponente
+
+chmod -R 777 .
+
+
+select `r`.`id` AS `id`,`r`.`id_post` AS `id_post`,`r`.`id_user_report` AS `id_user_report`,`us`.`name` AS `name_report`,`r`.`id_admin` AS `id_admin`,`r`.`cause` AS `cause`,`r`.`state_report` AS `state_report`,`r`.`created_at` AS `created_at`,`r`.`updated_at` AS `updated_at`,`c`.`category` AS `category`,`p`.`id_user` AS `id_user`,`u`.`name` AS `name`,`p`.`title` AS `title`,`p`.`date_event` AS `date_event`,`p`.`time_event` AS `time_event`,`p`.`capacity` AS `capacity`,`p`.`confirmed` AS `confirmed`,`p`.`address` AS `address`,`p`.`description` AS `description` from ((((`blog`.`report_post` `r` join `blog`.`posts` `p` on((`p`.`id` = `r`.`id_post`))) join `blog`.`users` `u` on((`u`.`id` = `p`.`id_user`))) join `blog`.`users` `us` on((`us`.`id` = `r`.`id_user_report`))) join `blog`.`categories` `c` on((`c`.`id` = `p`.`id_category`)))

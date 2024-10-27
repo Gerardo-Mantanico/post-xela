@@ -12,15 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('report_post', function (Blueprint $table) {
-            $table->id('id_report');
+            $table->id();
             $table->unsignedBigInteger('id_post');
-            $table->unsignedBigInteger('id_user_report');
             $table->unsignedBigInteger('id_admin')->nullable();
             $table->string('cause');
             $table->enum('state_report', ['APPROVED', 'REFUSED', 'PENDING']);
+            $table->integer('no_report');
             $table->timestamps();
-            $table->foreign('id_post')->references('id_post')->on('posts')->onDelete('cascade');
-            $table->foreign('id_user_report')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_post')->references('id')->on('posts')->onDelete('cascade');
             $table->foreign('id_admin')->references('id')->on('users')->onDelete('cascade');
         });
     }
