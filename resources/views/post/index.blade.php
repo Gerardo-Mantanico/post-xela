@@ -33,7 +33,7 @@
                                     </x-button>
 
                             </form>
-                            <a href="{{route('reportPost.show', $item->id)}}
+                            <a href="{{route('attendEvent.show', $item->id)}}
                             ">error</a>
                             <x-button-cancel href="{{route('reportPost.edit', $item->id)}}">
                                 <svg class="h-5 w-5 text-white-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

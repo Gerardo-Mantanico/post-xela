@@ -45,7 +45,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
+                    <x-nav-link href="{{ route('events') }}" :active="request()->routeIs('events')">
                         <svg class="h-6 w-6 text-black-200" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
                             <rect x="4" y="5" width="16" height="16" rx="2" />
@@ -54,7 +54,7 @@
                             <line x1="4" y1="11" x2="20" y2="11" />
                             <rect x="8" y="15" width="2" height="2" />
                         </svg>
-
+                        Events
 
                     </x-nav-link>
                 </div>
