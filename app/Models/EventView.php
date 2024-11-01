@@ -23,5 +23,6 @@ class EventView extends Model
         'state_publication',
         'created_at',
         'category',
+        'user',
     ];
 }

@@ -1,4 +1,15 @@
 <x-app-layout>
+    @if(session('alert'))
+    <div class="alert alert-danger mt-2 bg-red-500  text-center text-lg text-bg-white">
+        {{ session('alert') }}
+    </div>
+    @endif
+
+    @if(session('success'))
+    <div class="alert alert-danger mt-2 bg-green-500  text-center text-lg text-bg-white">
+        {{ session('success') }}
+    </div>
+    @endif
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-red overflow-hidden shadow-xl sm:rounded-lg">
@@ -33,17 +44,14 @@
                                     </x-button>
 
                             </form>
-                            <a href="{{route('attendEvent.show', $item->id)}}
-                            ">error</a>
-                            <x-button-cancel href="{{route('reportPost.edit', $item->id)}}">
+                            <x-a-cancel href="{{route('attendEvent.show', $item->id)}}">
                                 <svg class="h-5 w-5 text-white-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="9 11 12 14 22 4" />
                                     <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
                                 </svg>
-                                Participate
-                            </x-button-cancel>
+                                {{ __('Participate') }}
+                            </x-a-cancel>
                     </div>
-
                     </section>
             </div>
             @endforeach

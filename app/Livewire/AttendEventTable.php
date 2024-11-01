@@ -4,20 +4,19 @@ namespace App\Livewire;
 
 use App\Models\EventView;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class AttendEventTable extends Component
 {
     public $search = '';
-    public $isOpen = false; // Para manejar el estado del modal
-    public $isEditMode = false; // Para manejar el modo de edición
-
-
+    public $isOpen = false;
+    public $isEditMode = false;
 
     public function render()
     {
-
         $event = EventView::where('title', 'like', '%' . $this->search . '%')
-            ->paginate(4);
+            ->where('user', Auth::id())
+            ->orderBy('created_at', 'desc')->paginate(4);
 
         return view('livewire.attend-event-table', [
             'event' => $event,

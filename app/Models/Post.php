@@ -22,9 +22,20 @@ class Post extends Model
         'id_category',
         'state_publication',
     ];
-
     protected $attributes = [
         'confirmed' => 0,
-        'state_publication' => 'PENDING',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            if (auth()->user()->hasRole('Publicador')) {
+                $model->state_publication = 'ACTIVATED';
+            } else {
+                $model->state_publication = 'PENDING';
+            }
+        });
+    }
 }

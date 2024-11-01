@@ -14,7 +14,10 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('state_publication', 'ACTIVATED')->get();
+        $posts = Post::where('state_publication', 'ACTIVATED')
+            ->orderBy('created_at', 'desc') // Ordenar por fecha de creación de forma descendente
+            ->get();
+
         return view('post.index', compact('posts'));
     }
 
@@ -53,17 +56,15 @@ class PostController extends Controller
             $image_name = "/upload/" . time() . $i . '.png';
             file_put_contents(public_path() . $image_name, $data);
 
-            // Crear el div para la imagen
             $slide = $dom->createElement('div', '');
             $slide->setAttribute('class', 'swiper-slide');
 
             // Crear el elemento de imagen
             $imageElement = $dom->createElement('img', '');
             $imageElement->setAttribute('src', $image_name);
-            $imageElement->setAttribute('style', 'width: 100%; height: 100%; object-fit: cover;'); // Ocupa todo el contenedor  // O usando Tailwind: $imageElement->setAttribute('class', 'w-[300px] h-[200px] object-cover rounded-lg');
+            $imageElement->setAttribute('style', 'width: 100%; height: 100%; object-fit: cover;');
             $imageElement->setAttribute('alt', 'Slide ' . ($i + 1));
 
-            // Añadir la imagen al div de diapositiva
             $slide->appendChild($imageElement);
 
             // Añadir el div de diapositiva al contenedor swiper-wrapper
@@ -93,7 +94,6 @@ class PostController extends Controller
         // Añadir el contenedor de Swiper al DOM
         $dom->appendChild($swiperContainer); // Añadir al documento
 
-        // Guardar el HTML modificado
         $description = $dom->saveHTML();
         // Crear el post (ejemplo básico, ajusta según tu modelo)
         $user_id = $iduser = Auth::id();
@@ -113,7 +113,7 @@ class PostController extends Controller
 
     public function show()
     {
-        $posts = Post::get();
+        $posts = Post::orderBy('created_at', 'desc')->get();
         return view('post.show', compact('posts'));
     }
 

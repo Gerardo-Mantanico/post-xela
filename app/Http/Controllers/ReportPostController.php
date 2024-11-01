@@ -9,6 +9,7 @@ use App\Models\ReportPost;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\RegisterEvent;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use SebastianBergmann\CodeCoverage\Report\Xml\Report;
@@ -35,10 +36,14 @@ class ReportPostController extends Controller
 
     public function store(Request $request)
     {
-        $id_user = Auth::id();
-        $id_post = $request['id_post'];
-        $cause = $request['cause'];
-        $report = DB::select('CALL create_report(?,?,?)', [$id_post, $id_user, $cause]);
+        try {
+            $id_user = Auth::id();
+            $id_post = $request['id_post'];
+            $cause = $request['cause'];
+            $report = DB::select('CALL create_report(?,?,?)', [$id_post, $id_user, $cause]);
+        } catch (QueryException) {
+            //error cause is null 
+        }
         return redirect()->route('posts.index');
     }
 

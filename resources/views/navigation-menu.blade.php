@@ -10,19 +10,10 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
+                @if(auth()->user()->hasRole('Admin'))
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('category') }}" :active="request()->routeIs('category')">
                         {{ __('Category') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
-                        <svg class="h-6 w-6 text-black-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                        </svg>
-                        New post
-
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -34,6 +25,7 @@
 
                     </x-nav-link>
                 </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('reportsPost') }}" :active="request()->routeIs('reportsPost')">
                         <svg class="h-6 w-6 text-black-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -41,6 +33,16 @@
                             <polyline points="22,6 12,13 2,6" />
                         </svg>
                         Report post
+
+                    </x-nav-link>
+                </div>
+                @endif
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
+                        <svg class="h-6 w-6 text-black-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                        </svg>
+                        New post
 
                     </x-nav-link>
                 </div>
@@ -55,12 +57,9 @@
                             <rect x="8" y="15" width="2" height="2" />
                         </svg>
                         Events
-
                     </x-nav-link>
                 </div>
-
             </div>
-
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
