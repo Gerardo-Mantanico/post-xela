@@ -20,6 +20,7 @@ class AttendEventController extends Controller
                 'id_post' => $id,
                 'id_user' => $iduser
             ]);
+            session()->flash('success', 'Evento  registrado');
         } catch (QueryException $e) {
             session()->flash('alert', 'Ya has participado en este evento.');
         }

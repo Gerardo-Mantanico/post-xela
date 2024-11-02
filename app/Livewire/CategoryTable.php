@@ -45,7 +45,7 @@ class CategoryTable extends Component
     public function render()
     {
         $categories = Category::where('category', 'like', '%' . $this->search . '%')
-            ->paginate(10);
+            ->paginate(9);
 
         return view('livewire.category-table', [
             'categories' => $categories,

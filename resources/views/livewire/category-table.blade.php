@@ -10,7 +10,7 @@
 
     <!-- Modal para agregar categoría -->
     @if ($isOpen)
-    <div class="fixed inset-0 flex items-center justify-center z-50 mt-6 sm:rounded-lg ">
+    <div class="fixed inset-0 flex items-center justify-center z-50  sm:rounded-lg ">
         <div class="bg-white p-6 rounded shadow-lg">
             <h2 class="text-lg font-bold mb-4">Add category</h2>
             <input type="text" wire:model="categoryName" placeholder="Nombre de la categoría" class="mb-4 p-2 border border-gray-300 rounded">
@@ -32,7 +32,7 @@
     </div>
     @endif
 
-    <div class="flex justify-between items-center">
+    <div class="flex justify-between items-center mt-6">
         <x-button wire:click="openModal">
             Add category
         </x-button>
@@ -40,7 +40,7 @@
     </div>
 
 
-    <table class="min-w-full border-collapse border border-gray-200 p-6">
+    <table class="min-w-full border-collapse border border-gray-200 p-6 mt-6">
         <thead>
             <tr>
                 <th class="border border-gray-200 px-4 py-2">ID</th>

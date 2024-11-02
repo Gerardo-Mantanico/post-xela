@@ -1,11 +1,10 @@
 <div>
-    <table class="min-w-full border-collapse border border-gray-200 p-6">
+    <table class="min-w-full border-collapse border border-gray-200 p-6 mt-8">
         <thead>
             <tr>
                 <th class="border border-gray-200 px-4 py-2">Info</th>
                 <th class="border border-gray-200 px-4 py-2">Event date</th>
                 <th class="border border-gray-200 px-4 py-2">Days Left</th>
-                <th class="border border-gray-200 px-4 py-2">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -26,9 +25,6 @@
                 <td class="border border-gray-200 text-lg px-4 py-2 text-center countdown">
                 </td>
                 <td class="border border-gray-200 px-4 py-2 text-center">
-                    <x-button>
-                        Details
-                    </x-button>
                 </td>
             </tr>
             @endforeach
@@ -59,7 +55,7 @@
                 const timeDifference = eventDate - now;
 
                 if (timeDifference <= 0) {
-                    countdownElement.innerText = "Evento hoy o ya pasó";
+                    countdownElement.innerText = "Evento finaliado";
                     return;
                 }
 

@@ -1,9 +1,8 @@
 <x-app-layout>
-    <div class="py-12">
+    <div class="py-12 mt-11">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <div class="bg-gray-800 text-white text-center py-4">
-                    <img src="../../../logofile.png" alt="">
+                <div class="bg-black text-white text-center py-4">
                     <h1 class="text-2xl font-bold">Bienvenido a Xela event</h1>
                 </div>
                 <div class="p-6">

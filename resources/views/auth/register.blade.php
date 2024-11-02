@@ -1,10 +1,5 @@
 <x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-        </x-slot>
-
-        <x-validation-errors class="mb-4" />
-
+    <div class="flex justify-center items-center h-screen">
         <div class="relative sm:max-w-sm w-full">
             <div class="card bg-black shadow-lg  w-full h-full rounded-l-lg absolute  transform -rotate-6"></div>
             <div class="card bg-black shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
@@ -69,5 +64,6 @@
                 </form>
             </div>
         </div>
-    </x-authentication-card>
+    </div>
+
 </x-guest-layout>

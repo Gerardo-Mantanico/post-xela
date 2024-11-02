@@ -33,18 +33,18 @@ class ReportPostController extends Controller
 
         return redirect()->route('posts.index');
     }
-
     public function store(Request $request)
     {
         try {
             $id_user = Auth::id();
-            $id_post = $request['id_post'];
-            $cause = $request['cause'];
-            $report = DB::select('CALL create_report(?,?,?)', [$id_post, $id_user, $cause]);
+            $id_post = $request->input('id_post');
+            $cause = $request->input('cause');
+            DB::select('CALL create_report(?,?,?)', [$id_post, $id_user, $cause]);
+
+            return redirect()->route('posts.index')->with('success', 'La solicitud se registró exitosamente.');
         } catch (QueryException) {
-            //error cause is null 
+            return redirect()->route('posts.index')->with('alert', 'Ya tienes una solicitud');
         }
-        return redirect()->route('posts.index');
     }
 
     public function show(Request $id)

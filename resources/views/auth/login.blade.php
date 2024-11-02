@@ -1,14 +1,10 @@
 <x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-        </x-slot>
+    <div class="flex justify-center items-center h-screen">
         <div class="relative sm:max-w-sm w-full">
             <div class="card bg-black shadow-lg  w-full h-full rounded-l-lg absolute  transform -rotate-6"></div>
             <div class="card bg-black shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
             <div class="relative w-full rounded-3xl  px-6 py-4 bg-white shadow-md">
-                <label for="" class="block mt-3 text-sm text-gray-700 text-center font-semibold ">
-                    <img class="rounded-3xl" src="https://i.postimg.cc/rFTbtX4b/xela-Event.png" alt=" logo">
-                </label>
+                <img class="rounded-3xl" src="https://i.postimg.cc/rFTbtX4b/xela-Event.png" alt=" logo">
                 <x-validation-errors class="mb-4" />
                 @session('status')
                 <div class="mb-4 font-medium text-sm text-green-600">
@@ -53,7 +49,9 @@
                 </form>
             </div>
         </div>
-    </x-authentication-card>
+    </div>
+
+
 </x-guest-layout>
 
 <!-- This is an example component -->

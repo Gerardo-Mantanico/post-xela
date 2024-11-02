@@ -16,7 +16,7 @@ class AttendEventTable extends Component
     {
         $event = EventView::where('title', 'like', '%' . $this->search . '%')
             ->where('user', Auth::id())
-            ->orderBy('created_at', 'desc')->paginate(4);
+            ->orderBy('created_at', 'desc')->paginate(3);
 
         return view('livewire.attend-event-table', [
             'event' => $event,

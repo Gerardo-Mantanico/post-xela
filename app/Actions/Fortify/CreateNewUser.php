@@ -37,6 +37,6 @@ class CreateNewUser implements CreatesNewUsers
         $user->assignRole($roleName);
 
         // Redireccionar o devolver respuesta
-        // return redirect()->route('users.index')->with('success', 'Usuario creado y rol asignado.');
+        return $user;
     }
 }

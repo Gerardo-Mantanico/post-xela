@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\PostView;
 use DOMDocument;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('state_publication', 'ACTIVATED')
+        $posts = PostView::where('state_publication', 'ACTIVATED')
             ->orderBy('created_at', 'desc') // Ordenar por fecha de creación de forma descendente
             ->get();
 
