@@ -72,48 +72,10 @@
     </div>
     @endforeach
 
-    <!-- Swiper JS -->
+   <!-- Incluir los archivos CSS y JS -->
+   <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-    </script>
-    <script>
-        document.querySelectorAll('.reportButton').forEach(button => {
-            button.addEventListener('click', function() {
-                var userInput = prompt("Por favor ingresa el motivo del reporte:");
-                if (userInput !== null && userInput.trim() !== "") {
-                    var form = button.closest('form'); // Encuentra el formulario relacionado
-                    form.querySelector('input[name="cause"]').value = userInput;
-                    form.submit(); // Envía el formulario
-
-                } else {
-                    return;
-                }
-            });
-        });
-    </script>
-    <style>
-        .swiper-button-next,
-        .swiper-button-prev {
-            color: white;
-        }
-
-        .swiper {
-            width: 500px;
-        }
-    </style>
+    <script src="{{ asset('js/home.js') }}"></script>
     </body>
     </div>
 </x-app-layout>

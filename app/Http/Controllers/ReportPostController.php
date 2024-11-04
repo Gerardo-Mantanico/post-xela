@@ -40,7 +40,7 @@ class ReportPostController extends Controller
             $id_post = $request->input('id_post');
             $cause = $request->input('cause');
             DB::select('CALL create_report(?,?,?)', [$id_post, $id_user, $cause]);
-
+            
             return redirect()->route('posts.index')->with('success', 'La solicitud se registró exitosamente.');
         } catch (QueryException) {
             return redirect()->route('posts.index')->with('alert', 'Ya tienes una solicitud');

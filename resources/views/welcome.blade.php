@@ -58,6 +58,4 @@
     Xela events 0.1
 </footer>
 
-
-
 </html>

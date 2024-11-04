@@ -32,16 +32,12 @@ Route::middleware([
     Route::get('/events', function () {
         return view('events.events');
     })->name('events');
-
-    // Route::resource('categories', CategoryController::class)->names('categories')->middleware('admin');
     Route::resource('posts', PostController::class)->names('posts');
     Route::get('/new-post', function () {
         return view('new-post');
     })->name('new-post');
     Route::resource('reportPost', ReportPostController::class)->names('reportPost');
     Route::resource('attendEvent', AttendEventController::class)->names('attendEvent');
-    // Route::resource('categories', CategoryController::class)->names('categories')->middleware('admin');
     Route::resource('posts', PostController::class)->names('posts');
-    // Route::resource('reportPost', ReportPostController::class)->names('reportPost');
     Route::get('posts/publication', [PostController::class, 'publication'])->name('posts.publication');
 });

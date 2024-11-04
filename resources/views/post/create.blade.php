@@ -46,9 +46,9 @@
                     <x-button>
                         {{ __('Post') }}
                     </x-button>
-                    <x-button-cancel href="{{ route('posts.index') }}">
+                    <x-a-cancel href="{{ route('posts.index') }}">
                         {{ __('Cancel') }}
-                    </x-button-cancel>
+                    </x-a-cancel>
                 </form>
             </div>
             @section('scripts')
